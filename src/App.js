@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VideoList from './component/movie_list.js'
+import Navbar from './component/navbar.js'
 import './App.css';
 
 const API_KEY = 'b2ca3bae';
@@ -22,17 +23,21 @@ class App extends Component {
   componentDidMount(){
     fetchMovies().then(res =>{
       this.setState({
-        movies: res.Search
+        movies: res.Search,
+        totalCount: res.totalResults
       })
     });
   }
 
   render(){
     return (
-      <div className="container">
-        <h1>My favorite films</h1>
-          <VideoList movies={this.state.movies}/>
-      </div>
+      <React.Fragment>
+        <Navbar />
+        <div className="container">
+          <h1>My favorite films</h1>
+            <VideoList movies={this.state.movies}/>
+        </div>
+      </React.Fragment>
     );
   }
 
