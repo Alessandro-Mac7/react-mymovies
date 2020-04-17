@@ -1,13 +1,14 @@
 import React from 'react'
+import MovieItem from './movie_item.js'
 
-export default function movieList(props){
+export default function movieList({movies}){
 
     return(
-        <ul>
+        <div className="row">
             {
-                props.movies.map(movie => <li key={movie.imbdID}>{movie.Title}</li>)
+                movies.map(movie => <MovieItem  key={movie.imdbID} movie={movie}/>)
             }
-        </ul>
+        </div>
     )
 
 }
