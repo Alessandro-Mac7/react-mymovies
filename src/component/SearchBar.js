@@ -13,7 +13,7 @@ export default class SearchBar extends Component{
         return (
             <form className="form-inline my-2 my-lg-0">
                 <input className="form-control mr-sm-2" type="search" value={this.state.term} onChange={this.searchChange} placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button onClick = {this.searchClick} className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         )
     }
@@ -22,6 +22,11 @@ export default class SearchBar extends Component{
     searchChange = (e) => {
         this.setState({
             term: e.target.value
-        })
+        });
+    }
+
+    searchClick = (e) => {
+        e.preventDefault(); 
+        this.props.onSearchTerm(this.state.term)
     }
 }

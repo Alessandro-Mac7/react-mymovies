@@ -2,6 +2,8 @@ import React from 'react'
 import MovieItem from './movie_item.js'
 
 export default function movieList({movies}){
+    if(!movies)
+        return null;
 
     return(
         <div className="row">
