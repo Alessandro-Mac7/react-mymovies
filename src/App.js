@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import VideoList from './component/movie_list.js'
 import './App.css';
 
 const API_KEY = 'b2ca3bae';
@@ -28,13 +29,9 @@ class App extends Component {
 
   render(){
     return (
-      <div className="App">
+      <div className="container">
         <h1>My favorite films</h1>
-        <ul>
-        {
-          this.state.movies.map(movie => <li key={movie.imbdID}>{movie.Title}</li> )
-        }
-        </ul>
+          <VideoList movies={this.state.movies}/>
       </div>
     );
   }
